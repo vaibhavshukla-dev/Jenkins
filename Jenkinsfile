@@ -8,9 +8,9 @@ println 'Shukla'
     def SFDC_USERNAME
 
     def HUB_ORG=env.HUB_ORG_DH
-    def SFDC_HOST = 'https://login.salesforce.com'//env.SFDC_HOST_DH
+    def SFDC_HOST = env.SFDC_HOST_DH
     def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
-    def CONNECTED_APP_CONSUMER_KEY='3MVG97quAmFZJfVxVPVydBctzw3eNMGEfEqfNfXPGe1.J06P6_4ZID18aC5NIDjhZEyM2HHYuBAL.DP0fLt9p'//env.CONNECTED_APP_CONSUMER_KEY_DH
+    def CONNECTED_APP_CONSUMER_KEY=env.CONNECTED_APP_CONSUMER_KEY_DH
 
     println 'KEY IS' 
     println JWT_KEY_CRED_ID
@@ -18,9 +18,6 @@ println 'Shukla'
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
     def toolbelt = tool 'toolbelt'
-	println toolbelt
-
-toolbelt = 'C:\\Program Files\\Salesforce CLI\\bin\\sfdx'
 	println toolbelt
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
