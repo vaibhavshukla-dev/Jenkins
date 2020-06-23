@@ -7,9 +7,9 @@ println 'Shukla'
     def RUN_ARTIFACT_DIR="tests/${BUILD_NUMBER}"
     def SFDC_USERNAME
 
-    def HUB_ORG='sourceorg@jenkins.com'//env.HUB_ORG_DH
+    def HUB_ORG=env.HUB_ORG_DH
     def SFDC_HOST = 'https://login.salesforce.com'//env.SFDC_HOST_DH
-    def JWT_KEY_CRED_ID = '962e8d93-75f4-467a-ad6c-45611488e5bd'//env.JWT_CRED_ID_DH
+    def JWT_KEY_CRED_ID = env.JWT_CRED_ID_DH
     def CONNECTED_APP_CONSUMER_KEY='3MVG97quAmFZJfVxVPVydBctzw3eNMGEfEqfNfXPGe1.J06P6_4ZID18aC5NIDjhZEyM2HHYuBAL.DP0fLt9p'//env.CONNECTED_APP_CONSUMER_KEY_DH
 
     println 'KEY IS' 
