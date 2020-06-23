@@ -20,7 +20,7 @@ println 'Shukla'
     def toolbelt = tool 'toolbelt'
 	println toolbelt
 
-toolbelt = 'C:\Program Files\Salesforce CLI\bin\sfdx'
+toolbelt = 'C:\\Program Files\\Salesforce CLI\\bin\\sfdx'
 	println toolbelt
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
