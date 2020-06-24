@@ -25,12 +25,11 @@ println 'Shukla'
     }
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
-	rc = bat returnStatus: true, script: "file\\C:\\Program Files\\Salesforce CLI\\bin\\sfdx force:auth:jwt:grant --clientid 3MVG97quAmFZJfVxVPVydBctzw3eNMGEfEqfNfXPGe1.J06P6_4ZID18aC5NIDjhZEyM2HHYuBAL.DP0fLt9p --jwtkeyfile server.key --username sourceorg@jenkins.com --instanceurl https://login.salesforce.com"
         stage('Deploye Code') {
             if (isUnix()) {
                 rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile ${jwt_key_file} --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
             }else{
-                 rc = bat returnStatus: true, script: "file\\\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
+                 rc = bat returnStatus: true, script: "\"${toolbelt}\" force:auth:jwt:grant --clientid ${CONNECTED_APP_CONSUMER_KEY} --username ${HUB_ORG} --jwtkeyfile \"${jwt_key_file}\" --setdefaultdevhubusername --instanceurl ${SFDC_HOST}"
                  //rc = bat returnStatus: true, script: sfdx force:auth:jwt:grant --clientid 3MVG97quAmFZJfVxVPVydBctzw3eNMGEfEqfNfXPGe1.J06P6_4ZID18aC5NIDjhZEyM2HHYuBAL.DP0fLt9p --jwtkeyfile server.key --username sourceorg@jenkins.com --instanceurl https://login.salesforce.com
 	    }
             if (rc != 0) { error 'hub org authorization failed' }
